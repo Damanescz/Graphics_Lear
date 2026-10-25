@@ -22,7 +22,17 @@ int main()
 	//rekne at to okno zapne a bude se zobrazovat
 	glfwMakeContextCurrent(window);
 
+	//nacte vsechny OpenGL funkce (aby se daly pouzivat)
+	gladLoadGL();
+	//nastavi kde se openGl bude vykreslovat (x, y, width, height)
+	glViewport(0, 0, 800, 600);
 
+	//nastavi barvu pozadi (r, g, b, alpha) poziva dcimal rgb hodnoty (0.0f - 1.0f)
+	glClearColor(0.7f, 0.5f, 0.1f, 1.0f);
+	//vycisti barvu pozadi
+	glClear(GL_COLOR_BUFFER_BIT);
+	//zmeni buffery takze se zobrazi barva pozadi (jinak by to bylo jen cerny
+	glfwSwapBuffers(window);
 
 
 	// tohle je aby kod nepokracoval protoze se to jinak zavre
