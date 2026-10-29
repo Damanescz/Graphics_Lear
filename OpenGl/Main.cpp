@@ -33,17 +33,21 @@ int main()
 	
 	//souradnice kde jsou body sqrt je tam aby to bylo presnejsi
 	GLfloat vertices[] = {
-		-0.5f, -0.5f * float (sqrt(3)) / 3, 0.0f,
-		 0.5f, -0.5f * float (sqrt(3)) / 3, 0.0f, 
-		 0.0f,  0.5f * float (sqrt(3))*2 / 3, 0.0f 
+		-0.5f, -0.5f * float (sqrt(3)) / 3, 0.0f, // levý bod
+		 0.5f, -0.5f * float (sqrt(3)) / 3, 0.0f, // pravý bod
+		 0.0f,  0.5f * float(sqrt(3)) * 2 / 3, 0.0f // vrchol
 	};
 
 
 	//vytvoreni okna GLFWwindow* NAZEV = glfwCreateWindow(width, height, "name", fullscreen, sdílení resources? nevím co to je);
 	GLFWwindow* window = glfwCreateWindow(800, 600, "OKNOOOOO", NULL, NULL);
+	//pokud z nejakeho duvodu se nevytvori okno
 	if (window == NULL) {
+		//vypsani (klasicky C++)
 		std::cout << "Failed to create GLFW window" << std::endl;
+		// ukonci glfw
 		glfwTerminate();
+		//vrati chybu
 		return -1;
 	}
 	//rekne at to okno zapne a bude se zobrazovat
